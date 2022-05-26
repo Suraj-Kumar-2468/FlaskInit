@@ -21,11 +21,11 @@ from selenium.webdriver.support.ui import WebDriverWait
     
 @app.route("/getData", methods=("GET", "POST"), strict_slashes=False)
 def index():
-    if request.method == "POST":
+    if request.method == "GET":
         try:
-            print(request.json)
-            URL = request.json.get('url')
-            Page = request.json.get("page_limit")
+            print(request.args)
+            URL = request.args.get('url')
+            Page = request.args.get("page_limit")
             if URL == "":
                 return {
                     "code": 400,
