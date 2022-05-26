@@ -18,9 +18,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 # @app.route('/')
 # @app.route('/index')
 # def index():
-    
-@app.route("/getData", methods=("GET", "POST"), strict_slashes=False)
+
+
+@app.route('/')
 def index():
+    # A welcome message to test our server
+    return "<h1>Welcome to our medium-greeting-api!</h1>"
+
+@app.route("/getData", methods=("GET", "POST"), strict_slashes=False)
+def response():
     if request.method == "GET":
         try:
             print(request.args)
@@ -106,5 +112,7 @@ def index():
                     "message": "Internal server error."
                 }
 
+
+
 if __name__ == "__main__":
-    app.run(debug=True,port=8000, ssl_context='adhoc')
+    app.run(debug=True,port=8000,threaded=True, ssl_context='adhoc')
