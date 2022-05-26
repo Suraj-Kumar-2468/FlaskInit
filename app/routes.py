@@ -19,7 +19,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 # @app.route('/index')
 # def index():
     
-@app.route("/", methods=("GET", "POST"), strict_slashes=False)
+@app.route("/getData", methods=("GET", "POST"), strict_slashes=False)
 def index():
     if request.method == "POST":
         try:
